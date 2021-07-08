@@ -1,26 +1,26 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <!-- we're allowed to have multiple root elements inside app -->
+  <h1>Hello</h1>
+  <h2>World!</h2>
+  <h3>{{ msg }}</h3>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  name: "App",
+
+  data() {
+    return {
+      msg: "Hello World!"
+    };
   }
-}
+};
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: monospace;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
