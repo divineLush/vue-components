@@ -10,10 +10,22 @@
     @update-age="updateAge"
   ></app-user>
   <app-form>
+    <!-- i can still access component data -->
+    <p>{{ formHelpMessage }}</p>
     <p>this is useless</p>
     <p>help text</p>
+    <template v-slot:fields>
+      <input type="text" placeholder="login" />
+    </template>
   </app-form>
-  <app-form></app-form>
+  <app-form>
+    <template v-slot:fields>
+      <input type="password" placeholder="password" />
+    </template>
+    <template v-slot:buttons>
+      <button type="submit">Submit</button>
+    </template>
+  </app-form>
 </template>
 
 <script>
@@ -33,7 +45,8 @@ export default {
   data() {
     return {
       msg: "Hello World!",
-      age: 112
+      age: 112,
+      formHelpMessage: "useless help message"
     };
   },
 

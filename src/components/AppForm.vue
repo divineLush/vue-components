@@ -9,11 +9,11 @@
       </slot>
     </div>
     <div class="fields">
-      <input type="text" name="" value="" placeholder="email" />
-      <input type="text" name="" value="" placeholder="username" />
-      <input type="password" name="" value="" placeholder="password" />
+      <slot name="fields"></slot>
     </div>
-    <div class="buttons"></div>
+    <div class="buttons">
+      <slot name="buttons"></slot>
+    </div>
   </form>
 </template>
 
