@@ -9,18 +9,25 @@
     :ageCallback="updateAgeWithCallback"
     @update-age="updateAge"
   ></app-user>
+  <app-form>
+    <p>this is useless</p>
+    <p>help text</p>
+  </app-form>
+  <app-form></app-form>
 </template>
 
 <script>
 import AppGreeting from "./components/AppGreeting.vue";
 import AppUser from "./components/AppUser.vue";
+import AppForm from "./components/AppForm.vue";
 
 export default {
   name: "App",
 
   components: {
     AppGreeting,
-    AppUser
+    AppUser,
+    AppForm
   },
 
   data() {
@@ -51,5 +58,22 @@ export default {
 
 button {
   margin: 1rem;
+  padding: 0.5rem;
+  font: inherit;
+  background: transparent;
+  border: 2px solid #ce0056;
+  cursor: pointer;
+}
+
+form {
+  margin: 5rem 0;
+}
+
+input {
+  display: block;
+  margin: 1rem;
+  padding: 0.5rem;
+  font: inherit;
+  border: 2px solid #ce0056;
 }
 </style>
