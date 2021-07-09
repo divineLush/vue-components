@@ -26,12 +26,30 @@
       <button type="submit">Submit</button>
     </template>
   </app-form>
+
+  <select v-model="componentName">
+    <option value="AppHome">home</option>
+    <option value="AppAbout">about</option>
+  </select>
+
+  <!-- placeholder for component provided by Vue -->
+  <!-- when a component is toggled out it gets unmounted -->
+  <component :is="componentName"></component>
+
+  <!-- keep-alive will make sure the component lives in memory  -->
+  <!-- component won't be unmounted, unmounted() hook won't run -->
+  <!-- activated() and deactivated() hooks will run instead -->
+  <keep-alive>
+    <component :is="componentName"></component>
+  </keep-alive>
 </template>
 
 <script>
 import AppGreeting from "./components/AppGreeting.vue";
 import AppUser from "./components/AppUser.vue";
 import AppForm from "./components/AppForm.vue";
+import AppHome from "./components/AppHome.vue";
+import AppAbout from "./components/AppAbout.vue";
 
 export default {
   name: "App",
@@ -39,14 +57,17 @@ export default {
   components: {
     AppGreeting,
     AppUser,
-    AppForm
+    AppForm,
+    AppHome,
+    AppAbout
   },
 
   data() {
     return {
       msg: "Hello World!",
       age: 112,
-      formHelpMessage: "useless help message"
+      formHelpMessage: "useless help message",
+      componentName: "AppHome"
     };
   },
 
