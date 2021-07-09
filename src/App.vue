@@ -4,7 +4,7 @@
   <h2>World!</h2>
   <h3>{{ msg }}</h3>
   <AppGreeting greeting="Hello World!" />
-  <app-user :age="age"></app-user>
+  <app-user :age="age" @update-age="updateAge"></app-user>
 </template>
 
 <script>
@@ -24,6 +24,12 @@ export default {
       msg: "Hello World!",
       age: 112
     };
+  },
+
+  methods: {
+    updateAge(num) {
+      this.age += +num;
+    }
   }
 };
 </script>
