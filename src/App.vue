@@ -4,7 +4,11 @@
   <h2>World!</h2>
   <h3>{{ msg }}</h3>
   <AppGreeting greeting="Hello World!" />
-  <app-user :age="age" @update-age="updateAge"></app-user>
+  <app-user
+    :age="age"
+    :ageCallback="updateAgeWithCallback"
+    @update-age="updateAge"
+  ></app-user>
 </template>
 
 <script>
@@ -29,6 +33,9 @@ export default {
   methods: {
     updateAge(num) {
       this.age += +num;
+    },
+    updateAgeWithCallback(num) {
+      this.age += +num;
     }
   }
 };
@@ -40,5 +47,9 @@ export default {
   font-size: 1.6rem;
   text-align: center;
   color: #2c3e50;
+}
+
+button {
+  margin: 1rem;
 }
 </style>

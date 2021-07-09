@@ -1,5 +1,6 @@
 <template>
   <button @click="updateAge">update age</button>
+  <button @click="updateAgeWithCallbck">update age with callback</button>
   <p>the user is {{ age }} years young</p>
   <p>age doubled: {{ ageDoubled }}</p>
 </template>
@@ -21,6 +22,10 @@ export default {
         return typeof value === "number";
       },
       required: true
+    },
+    ageCallback: {
+      type: Function,
+      required: true
     }
   },
 
@@ -36,6 +41,9 @@ export default {
   methods: {
     updateAge() {
       this.$emit("update-age", 3);
+    },
+    updateAgeWithCallbck() {
+      this.ageCallback(5);
     }
   }
 };
