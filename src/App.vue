@@ -42,6 +42,30 @@
   <keep-alive>
     <component :is="componentName"></component>
   </keep-alive>
+
+  <!-- v alias represents every property bound to the slot component -->
+  <app-slot v-slot="v">
+    <p>{{ v.user.name }}</p>
+  </app-slot>
+
+  <!-- destructure the object -->
+  <app-slot v-slot="{ user }">
+    <p>{{ user.name }}</p>
+  </app-slot>
+
+  <!-- shorthand -->
+  <app-slot #="v">
+    <p>{{ v.user.name }}</p>
+  </app-slot>
+
+  <!-- shorthand with setting slot name -->
+  <app-slot #default="v">
+    <p>{{ v.user.name }}</p>
+  </app-slot>
+
+  <app-slot #default="{ user, doom }">
+    <p>{{ user.name }} {{ doom }}</p>
+  </app-slot>
 </template>
 
 <script>
@@ -50,6 +74,7 @@ import AppUser from "./components/AppUser.vue";
 import AppForm from "./components/AppForm.vue";
 import AppHome from "./components/AppHome.vue";
 import AppAbout from "./components/AppAbout.vue";
+import AppSlot from "./components/AppSlot.vue";
 
 export default {
   name: "App",
@@ -59,7 +84,8 @@ export default {
     AppUser,
     AppForm,
     AppHome,
-    AppAbout
+    AppAbout,
+    AppSlot
   },
 
   data() {
