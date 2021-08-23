@@ -66,6 +66,11 @@
   <app-slot #default="{ user, doom }">
     <p>{{ user.name }} {{ doom }}</p>
   </app-slot>
+
+  <div v-append="'you'"></div>
+  <div v-append.green="'you'"></div>
+  <div v-append:full="'<span>full!</span>'"></div>
+  <div v-append-secondary="{ tag: 'p', content: 'hey content' }"></div>
 </template>
 
 <script>
@@ -75,6 +80,7 @@ import AppForm from "./components/AppForm.vue";
 import AppHome from "./components/AppHome.vue";
 import AppAbout from "./components/AppAbout.vue";
 import AppSlot from "./components/AppSlot.vue";
+import appendSecondary from "./directives/appendSecondary.js";
 
 export default {
   name: "App",
@@ -86,6 +92,10 @@ export default {
     AppHome,
     AppAbout,
     AppSlot
+  },
+
+  directives: {
+    'append-secondary': appendSecondary,
   },
 
   data() {
